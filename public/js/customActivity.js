@@ -69,7 +69,7 @@ define([
     resetProperties();
     
     var searchText = $('#search-text').val();
-    var url = "https://sousmile-platform-api.herokuapp.com/twilio-message-templates"
+    var url = "https://firebase-app-integration.herokuapp.com/push-templates"
     
     if (searchText && searchText != '') {
       url = url + '?search_text=' + searchText;
