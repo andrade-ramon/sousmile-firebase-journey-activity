@@ -2,41 +2,109 @@
 <html>
 
 <head>
-    <title></title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/require.js"></script>
-    <script type="text/javascript">
-        (function () {
-            var config = {
-                baseUrl: 'js'
-            };
+  <title></title>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/require.js"></script>
+  <script type="text/javascript">
+    (function () {
+      var config = {
+        baseUrl: 'js'
+      };
 
-            var dependencies = [
-                'customActivity'
-            ];
+      var dependencies = [
+        'customActivity'
+      ];
 
-            require(config, dependencies);
-        })();
-    </script>
+      require(config, dependencies);
+    })();
+  </script>
 </head>
 
 <body>
-    <div id="step1" class="step">
-        <div class="slds-grid">
+  <div id="step1" class="step">
 
-            <main class="slds-col">
-               
-                <h1>welcome to your activity!</h1>
-            </main>
-            
+    <h1>Escolha a mensagem do whatsapp que vai ser enviada</h1>
+    <div class="box-search">
+      <input type="search" id="search-text"/> 
+    </div>
+    <div class="box">
+      <select id="select1">
+        <option value="">Selecione</option>
+      </select>
+    </div>
 
+    <img src="images/loading.gif" class="loading"/>
+
+    <div class='total'>
+      <span>Total de mensagens: </span>      
+      <span id="total">0</span>
+    </div>
+
+    <div class='message'>
+      <p>Mensagem:</p>      
+      <span id="message"></span>
+    </div>
+  </div>
+
+  <div id="step2" class="step">
+    <h1>Confira os atributos que serão enviados para o twilio:</h1>
+
+    
+
+    <div class='message-step-3'>
+      <div>
+        <p>Mensagem:</p>      
+        <span id="message-step-3"></span>
+      </div>
+      <div class="line">
+        <p>Atributos da mensagem:</p>
+        <div id="attrib">
+          <!-- <span class='attrib'>first_name</span> -->
+          <!-- <span class='attrib'>tracking_code</span> -->
         </div>
 
+        <p id="error"><span class='error'>ATENÇÃO:</span> Existem campos da mensagem escolhida que não estão na data extension de entrada dessa jornada</p>
+      </div>
+
+      <div class="line">
+        <p>Data extensions:</p>
+      </div>
     </div>
+
+    <p></p>
+
+    <div class="table">
+      <ul>
+        <li class="title">customers</li>
+        <li>email</li>
+        <li>full_name</li>
+        <li>first_name</li>
+        <li>phone_number</li>
+        <li>desired_treatment</li>
+        <li>whatsapp_optin</li>
+      </ul>
+    </div>
+  
+    <div class="table">
+      <ul>
+        <li class="title">stores</li>
+        <li>id</li>
+        <li>short_name</li>
+      </ul>
+    </div>
+    
+    <div class="table">
+      <ul id="attribute-list">
+        <li class="title" id="entrydename">Data extension de entrada</li>
+      </ul>
+    </div>
+  
+  </div>
+
 </body>
 
 </html>

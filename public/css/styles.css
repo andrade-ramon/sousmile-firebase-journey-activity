@@ -1,12 +1,178 @@
 body {
-    padding: 20px;
-    margin: 0;
+  padding: 20px;
+  margin: 0;
+  background-color: #004882;
 }
 
 .step {
-    display: none;
+  display: none;
 }
 
 #step1 {
-    display: block;
+  display: block;
+}
+
+
+
+h1 {
+  font-family: "Salesforce Sans",Arial,sans-serif;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.message{
+  top: 250px;
+  left: 20%;
+  right: 20%;
+  position: absolute;
+  color: white;
+  font-family: "Salesforce Sans",Arial,sans-serif;
+}
+
+.total {
+  top: 210px;
+  left: 20%;
+  right: 20%;
+  position: absolute;
+  color: white;
+  font-family: "Salesforce Sans",Arial,sans-serif;
+}
+
+.box-search {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box-search input {
+  background-color: #0563af;
+  color: white;
+  padding: 12px;
+  width: 650px;
+  border: none;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.loading {
+  width: 50px;
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* display: none; */
+}
+
+.box {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.box select {
+  background-color: #0563af;
+  color: white;
+  padding: 20px;
+  width: 670px;
+  border: none;
+  font-size: 17px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box::before { 
+  /* content: "\f13a"; */
+  /* font-family: "Salesforce Sans",Arial,sans-serif; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+.message-step-3 {
+  font-family: "Salesforce Sans",Arial,sans-serif;
+  color: white;
+  width: 100%;
+  min-height: 100px;
+  float: left;
+  margin-right: 20px;
+  padding-left: 50px;
+}
+
+.message-step-3 .line {
+  margin-top: 40px;
+}
+
+#error{
+  font-family: "Salesforce Sans",Arial,sans-serif;
+  margin-top: 30px;
+  display: none;
+}
+
+.error {
+  color: #f23f3f;
+}
+
+.message-step-3 .attrib {
+  padding: 5px;
+  background: #f23f3f;
+  margin-right: 5px;
+}
+
+.message-step-3 .attrib.success {
+  background: #2f8e42;
+}
+
+.table {
+  width: 300px;
+  min-height: 500px;
+  float: left;
+  margin-right: 20px;
+}
+
+.table label {
+  font-family: "Salesforce Sans",Arial,sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.table ul {
+  list-style: none;
+  font-family: "Salesforce Sans",Arial,sans-serif;
+  color: white;
+  font-size: 17px;
+}
+
+.table ul li {
+  padding: 5px 10px;
+  margin-top: 2px;
+  border: 1px solid #fff;
+}
+
+.table ul li.title {
+  background-color: #7b7cc2;
 }

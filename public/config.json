@@ -8,7 +8,7 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "send-data-to-firebase",
+      "name": "send-to-firebase",
       "description": "A Template for a custom Journey Builder activity",
       "step1Label": "Configure Activity"
     }
@@ -17,11 +17,11 @@
     "execute": {
       "inArguments": [
         {
-          "emailAddress": "{{InteractionDefaults.email}}"
+          "emailAddress": "{{InteractionDefaults.email}}" 
         }
       ],
       "outArguments": [],
-      "url": "https://endr87y6k8okn.x.pipedream.net/execute",
+      "url": "https://8aencdwdhb.execute-api.us-east-1.amazonaws.com/prod/",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -31,45 +31,58 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "f7fc9f19-9a69-4b86-a567-3950ee8aa547",
+    "applicationExtensionKey": "963aec82-c8d9-4ede-896a-87b10f82943b",
     "save": {
-      "url": "https://sousmile-marketing-cloud.herokuapp.com/journeybuilder/save",
+      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/save",
       "verb": "POST",
       "useJwt": true
     },
     "publish": {
-      "url": "https://sousmile-marketing-cloud.herokuapp.com/journeybuilder/publish",
+      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/publish",
       "verb": "POST",
       "useJwt": true
     },
     "stop": {
-      "url": "https://sousmile-marketing-cloud.herokuapp.com/journeybuilder/stop",
+      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/stop",
       "verb": "POST",
       "useJwt": true
     },
     "validate": {
-      "url": "https://sousmile-marketing-cloud.herokuapp.com/journeybuilder/validate",
+      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/validate",
       "verb": "POST",
       "useJwt": true
     }
   },
   "wizardSteps": [
-    {
-      "label": "Configure Activity",
-      "key": "step1"
-    }
-  ],
+    { "label": "Escolha a mensagem", "key": "step1" },
+    { "label": "Valide as DEs", "key": "step2" }
+ ],
   "userInterfaces": {
     "configModal": {
-      "height": 400,
-      "width": 1000,
-      "fullscreen": false
+      "height": 200,
+      "width": 300,
+      "fullscreen": true
     }
   },
   "schema": {
     "arguments": {
       "execute": {
-        "inArguments": [],
+        "inArguments": [
+          {
+            "phoneNumber": {
+              "dataType": "Phone",
+              "isNullable": false,
+              "direction": "in"   
+            }
+          },
+          {
+            "emailAddress": {
+              "dataType": "Email",
+              "isNullable": false,
+              "direction": "in"
+            }
+          }
+        ],
         "outArguments": []
       }
     }
