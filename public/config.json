@@ -21,7 +21,7 @@
         }
       ],
       "outArguments": [],
-      "url": "https://8aencdwdhb.execute-api.us-east-1.amazonaws.com/prod/",
+      "url": "https://32yccuuj79.execute-api.us-east-1.amazonaws.com/prod",
       "verb": "POST",
       "body": "",
       "header": "",

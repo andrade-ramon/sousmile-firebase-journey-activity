@@ -10,7 +10,7 @@ define([
   var payload = {};
   var lastStepEnabled = false;
   var eventDefinitionKey;
-  var twilioTemplateMessages = [];
+  var firebasePushTemplateMessages = [];
   var isSearching = false;
   var schema = [];
 
@@ -38,7 +38,7 @@ define([
     connection.trigger('requestEndpoints');
     connection.trigger('requestInteraction');
     connection.trigger('requestSchema');
-    loadTwilioMessages();
+    loadFirebaseMessages();
     // initialize();
   } 
 
@@ -56,20 +56,24 @@ define([
 
   function resetProperties() {
     $("#select1").html("<option value=''>Selecione</option>");
-    twilioTemplateMessages = [];
+    firebasePushTemplateMessages = [];
     $("#total").html("buscando...");
     $("#attrib").html("");
+    $('#name-step-3').html("");
+    $('#title-step-3').html("");
     $('#message-step-3').html("");
     $('#error').hide();
     $('#message').html("");
   }
 
-  function loadTwilioMessages() {
+  function loadFirebaseMessages() {
     displayLoader();
     resetProperties();
     
     var searchText = $('#search-text').val();
     var url = "https://firebase-app-integration.herokuapp.com/push-templates"
+    // var url = "http://localhost:3300/push-templates"
+    
     
     if (searchText && searchText != '') {
       url = url + '?search_text=' + searchText;
@@ -79,7 +83,7 @@ define([
       type: "GET",
       url: url,
       success: function(data){
-        twilioTemplateMessages = data;
+        firebasePushTemplateMessages = data;
 
         data.forEach(item => {
           $("#select1").append(new Option(item.name, item.name));
@@ -137,6 +141,8 @@ define([
     connection.trigger('updateButton', { button: 'next', enabled: Boolean(selectedMessage.name) });
 
     $('#message').html(selectedMessage.message);
+    $('#push_template_name').html(selectedMessage.name);
+    $('#push_title').html(selectedMessage.title);
     $('#message-step-3').html(selectedMessage.message);
     $('#attrib').html("");
     selectedMessage.fields.forEach(field => {
@@ -152,7 +158,7 @@ define([
         return;
       }
       if(e.which == 13) {
-        loadTwilioMessages();
+        loadFirebaseMessages();
       }
     });
 
@@ -267,7 +273,8 @@ define([
     var message = getSelectedMessage();
 
     payload['arguments'].execute.inArguments = [{ 
-      "message": message.name,
+      "push_message_template_id": message.id,
+      "message": message.message,
       "email": "{{Contact.Attribute.customers.email}}",
       "name": "{{Contact.Attribute.customers.full_name}}",
       "first_name": "{{Contact.Attribute.customers.first_name}}",
@@ -275,23 +282,19 @@ define([
       "treatment_type":  "{{Contact.Attribute.customers.desired_treatment}}",
       "whatsapp_optin":  "{{Contact.Attribute.customers.whatsapp_optin}}",
       "store_id": "{{Contact.Attribute.stores.id}}",
-      "store_name": "{{Contact.Attribute.stores.short_name}}"
+      "store_name": "{{Contact.Attribute.stores.short_name}}",
+      "firebase_token": "{{Contact.Attribute.customer_app_infos.firebase_token}}"
     }];
-
 
     var a = []
     if (message.fields) {      
       message.fields.forEach(field => {
         if (!payload['arguments'].execute.inArguments[0][field]) {
-          console.log('passou')
           payload['arguments'].execute.inArguments[0][field] = "{{Event." + eventDefinitionKey + "." + field + "}}"
           a[field] = "{{Event." + eventDefinitionKey + "." + field + "}}";
         }
       });
     }
-
-    console.log('AAAAA=========================')
-    console.log(a);
 
     payload['metaData'].isConfigured = true;
     payload['name'] = message.name;
@@ -321,7 +324,7 @@ define([
     var selectedMessageName = getSelectedMessageName();
 
     var foundMessage = {};
-    twilioTemplateMessages.forEach(item => {
+    firebasePushTemplateMessages.forEach(item => {
       if (item.name == selectedMessageName) {
         foundMessage = item
       }

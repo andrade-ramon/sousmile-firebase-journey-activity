@@ -21,13 +21,19 @@ h1 {
   text-align: center;
 }
 
+.push-body {
+  background-color: #0563af;
+  padding: 10px;
+}
+
 .message{
   top: 250px;
   left: 20%;
   right: 20%;
   position: absolute;
-  color: white;
+  /*color: white;*/
   font-family: "Salesforce Sans",Arial,sans-serif;
+  color:  white;
 }
 
 .total {
