@@ -39,7 +39,7 @@ define([
     connection.trigger('requestInteraction');
     connection.trigger('requestSchema');
     loadFirebaseMessages();
-    // initialize();
+    initialize();
   } 
 
   function displayLoader() {
@@ -138,11 +138,14 @@ define([
   
   function selectedMessageChanged() {
     var selectedMessage = getSelectedMessage();
+    console.log(selectedMessage);
     connection.trigger('updateButton', { button: 'next', enabled: Boolean(selectedMessage.name) });
 
     $('#message').html(selectedMessage.message);
     $('#push_template_name').html(selectedMessage.name);
     $('#push_title').html(selectedMessage.title);
+    $('#name-step-3').html(selectedMessage.name);
+    $('#title-step-3').html(selectedMessage.title);
     $('#message-step-3').html(selectedMessage.message);
     $('#attrib').html("");
     selectedMessage.fields.forEach(field => {
@@ -150,6 +153,18 @@ define([
     });
 
     hasAllMessageParameters();
+    // $('.step').hide();
+    // $('#step2').show();
+    //   connection.trigger('updateButton', {
+    //     button: 'back',
+    //     visible: true
+    //   });
+    //   connection.trigger('updateButton', {
+    //     button: 'next',
+    //     text: 'done',
+    //     visible: true,
+    //     enabled: Boolean(hasAllMessageParameters())
+    //   });
   }
 
   function initialize(data) {
@@ -232,6 +247,7 @@ define([
   }
 
   function showStep(step, stepIndex) {
+
     if (stepIndex && !step) {
       step = steps[stepIndex-1];
     }
