@@ -26,7 +26,6 @@
       "body": "",
       "header": "",
       "format": "json",
-      "useJwt": true,
       "timeout": 10000
     }
   },
@@ -34,23 +33,19 @@
     "applicationExtensionKey": "963aec82-c8d9-4ede-896a-87b10f82943b",
     "save": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/save",
-      "verb": "POST",
-      "useJwt": true
+      "verb": "POST"
     },
     "publish": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/publish",
-      "verb": "POST",
-      "useJwt": true
+      "verb": "POST"
     },
     "stop": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/stop",
-      "verb": "POST",
-      "useJwt": true
+      "verb": "POST"
     },
     "validate": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/validate",
-      "verb": "POST",
-      "useJwt": true
+      "verb": "POST"
     }
   },
   "wizardSteps": [

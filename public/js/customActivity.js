@@ -39,7 +39,7 @@ define([
     connection.trigger('requestInteraction');
     connection.trigger('requestSchema');
     loadFirebaseMessages();
-    initialize();
+    // initialize();
   } 
 
   function displayLoader() {
