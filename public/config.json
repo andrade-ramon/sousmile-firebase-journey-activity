@@ -21,7 +21,7 @@
         }
       ],
       "outArguments": [],
-      "url": "https://enqnnqrceadnm.x.pipedream.net/",
+      "url": "https://enqnnqrceadnm.x.pipedream.net",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -45,6 +45,10 @@
     },
     "validate": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/validate",
+      "verb": "POST"
+    },
+    "execute": {
+      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/execute",
       "verb": "POST"
     }
   },
