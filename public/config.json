@@ -21,12 +21,11 @@
         }
       ],
       "outArguments": [],
-      "url": "https://enqnnqrceadnm.x.pipedream.net",
+      "url": "https://32yccuuj79.execute-api.us-east-1.amazonaws.com/prod/",
       "verb": "POST",
-      "body": "",
+      "body": "{}",
       "header": "",
-      "format": "json",
-      "timeout": 10000
+      "format": "json"
     }
   },
   "configurationArguments": {
@@ -45,10 +44,6 @@
     },
     "validate": {
       "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/validate",
-      "verb": "POST"
-    },
-    "execute": {
-      "url": "https://sousmile-firebase-journey.herokuapp.com/journeybuilder/execute",
       "verb": "POST"
     }
   },
