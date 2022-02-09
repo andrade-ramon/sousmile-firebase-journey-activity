@@ -299,7 +299,8 @@ define([
       "whatsapp_optin":  "{{Contact.Attribute.customers.whatsapp_optin}}",
       "store_id": "{{Contact.Attribute.stores.id}}",
       "store_name": "{{Contact.Attribute.stores.short_name}}",
-      "firebase_token": "{{Contact.Attribute.customer_app_infos.firebase_token}}"
+      "firebase_token": "{{Contact.Attribute.customer_app_infos.firebase_token}}",
+      "customer_id": "{{Contact.Attribute.customers.key}}"
     }];
 
     var a = []
